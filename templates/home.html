@@ -14,7 +14,8 @@ Hi {{ user.username }}! Once you pop you don't stop.
 </form>
 {% else %}
 <p>You are not logged in</p>
+<p><a href="{% url 'login' %}">Log In</a></p>
+<p><a href="{% url 'register' %}">Sign Up</a></p>
 <p><a href="{% url 'password_reset' %}">Password Reset</a></p>
-<a href="{% url 'login' %}">Log In</a>
 {% endif %}
 {% endblock %}

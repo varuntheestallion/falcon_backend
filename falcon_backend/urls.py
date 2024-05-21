@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 
+from falconcup.views import LoginView, RegisterView
+
 urlpatterns = [
     path("falconcup/", include("falconcup.urls")),
     path("admin/", admin.site.urls),
+    path("login/", LoginView.as_view(), name="login"),
+    path("register/", RegisterView.as_view(), name="register"),
     path("accounts/", include("django.contrib.auth.urls")),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
 ]
