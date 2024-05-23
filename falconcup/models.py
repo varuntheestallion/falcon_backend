@@ -47,12 +47,13 @@ class TeamMember(models.Model):
         DONT_HAVE_ONE: "Don't have one",
     }
     ghin_status = models.CharField(
+        "GHIN Status",
         max_length=3, 
         choices=GHIN_STATUS_CHOICES, 
         default=ACTIVE,
     )
     
-    ghin_number = models.CharField(max_length=200)
+    ghin_number = models.CharField("GHIN Number", max_length=200)
 
     XS = "XS"
     S = "S"
@@ -61,17 +62,18 @@ class TeamMember(models.Model):
     XL = "XL"
     XXL = "XXL"
     TSHIRT_SIZE_CHOICES = { XS: "XS", S: "S", M: "M", L: "L", XL: "XL", XXL: "XXL" }
-    tshirt_size = models.CharField(max_length=3, choices=TSHIRT_SIZE_CHOICES)
+    tshirt_size = models.CharField("T-Shirt Size", max_length=3, choices=TSHIRT_SIZE_CHOICES)
 
     MEAT = "MEAT"
     VEGETARIAN = "VEG"
     MEAL_PREFERENCE_CHOICES = { MEAT: "Meat", VEGETARIAN: "Vegetarian" }
-    meal_preference = models.CharField(max_length=4, choices=MEAL_PREFERENCE_CHOICES)
+    meal_preference = models.CharField("Meal Preference", max_length=4, choices=MEAL_PREFERENCE_CHOICES)
 
     WALK = "WALK"
     CART = "CART"
     CART_SITTING_PREFERENCE_CHOICES = { WALK: "Walk", CART: "Cart" }
     cart_sitting_preference = models.CharField(
+        "Cart Sitting Preference",
         max_length=4, 
         choices=CART_SITTING_PREFERENCE_CHOICES,
     )
@@ -83,6 +85,7 @@ class TeamMember(models.Model):
         CAPTAIN: "Captain",
     }
     player_level = models.CharField(
+        "Player Level",
         max_length=2, 
         choices=PLAYER_LEVEL_CHOICES, 
         default=TEAMMEMBER,
