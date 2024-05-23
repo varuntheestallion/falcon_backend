@@ -1,13 +1,39 @@
 <!-- templates/registration/login.html -->
 {% extends "base.html" %}
 
+{% load static %}
+{% load widget_tweaks %}
+
 {% block title %}Login{% endblock %}
 
+{% block banner_text %}LOGIN{% endblock %}
+
 {% block content %}
-<h2>Log In</h2>
-<form action="{% url 'login' %}" method="post">
-  {% csrf_token %}
-  {{ form }}
-  <button type="submit">Log In</button>
-</form>
+<div class="container">
+    <div class="form-container d-flex justify-content-center">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="login-form-card">
+                <div class="input-margin">
+                    {{ form.username.errors }}
+                    <label for="{{ form.username.id_for_label }}" class="form-label">{{ form.username.label }}
+                        <span class="text-asterisk">*</span>
+                    </label>
+                    {% render_field form.username class="form-control" placeholder="Enter email" %}
+                </div>
+                <div class="input-margin">
+                    {{ form.password.errors }}
+                    <label for="{{ form.password.id_for_label }}" class="form-label">{{ form.password.label }}
+                        <span class="text-asterisk">*</span>
+                    </label>
+                    {% render_field form.password class="form-control" placeholder="Enter password" %}
+                </div>
+            </div>
+            <div class="button-container d-flex flex-row-reverse">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

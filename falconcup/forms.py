@@ -10,6 +10,7 @@ class TeamMemberForm(forms.ModelForm):
         model = TeamMember
         fields = '__all__'
         exclude = ("user", "team",)
+        widgets = { 'player_level': forms.RadioSelect }
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
