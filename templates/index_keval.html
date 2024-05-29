@@ -95,20 +95,21 @@
                 <div class="login-form-card">
                     <div class="input-margin">
                         <label for="exampleFormControlInput1" class="form-label">Email address<span
-                                class="text-asterisk">*</span>
+                                class="text-askrisk">*</span>
                         </label>
                         <input type="email" class="form-control" id="exampleFormControlInput1"
                             placeholder="Enter email">
                     </div>
                     <div class="input-margin">
                         <label for="exampleFormControlInput1" class="form-label">Password<span
-                                class="text-asterisk">*</span></label>
+                                class="text-askrisk">*</span></label>
                         <input type="password" class="form-control" id="exampleFormControlInput1"
                             placeholder="Enter password">
                     </div>
                 </div>
                 <div class="button-container d-flex flex-row-reverse">
-                    <button type="button" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToPage()">Login</button>
+
                 </div>
             </div>
         </div>
@@ -169,5 +170,10 @@
 https://cdn.jsdelivr.net/npm/fontello-installer@0.0.2/lib/fontello.min.js
 "></script>
 
+<script>
+    function redirectToPage() {
+        window.location.href = "RegisterTeam.html"; // Replace "anotherPage.html" with the URL of the page you want to redirect to
+    }
+</script>
 
 </html>

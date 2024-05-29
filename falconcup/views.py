@@ -30,9 +30,10 @@ def team_member_create(request):
     if request.method == 'POST':
         form = TeamMemberForm(request.POST)
         if form.is_valid():
-            team_member = form.save(commit=False)
-            team_member.user = request.user
-            team_member.save()
+            # team_member = form.save(commit=False)
+            # team_member.user = request.user
+            # team_member.save()
+            team_member = form.save()
             return redirect('home')
     else:
         form = TeamMemberForm()

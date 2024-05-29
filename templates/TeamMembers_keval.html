@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="bootstrap-5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rozha+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!-- <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .accordion {
+                background-color: #eee;
+                color: #444;
+                cursor: pointer;
+                padding: 10px;
+                width: 100%;
+                border: none;
+                text-align: left;
+                outline: none;
+                font-size: 14px;
+                transition: 0.4s;
+            }
+            .active, .accordion:hover {
+                background-color: #ccc;
+            }
+            .panel {
+                display: none;
+                background-color: white;
+                overflow: hidden;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style> -->
+</head>
+
+<body class="register-team">
+    <div class="container-fluid p-0">
+        <!-- <div class="navbar-v1">
+            <ul class="nav justify-content-end cus-navbar">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Falcon Cup League</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Falcon Cup 2024</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Falcon Cup 2025</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Rules & Guidelines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">About Falcon Cup</a>
+                </li>
+            </ul>
+        </div> -->
+        <nav class="navbar navbar-expand-lg cus-navbar">
+            <div class="container-fluid p-0">
+                <div class="navbar-brand" href="#">
+                    <img src="./images/w-Falcon-logo.png" alt="Logo">
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav top-bar">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Falcon Cup League</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Falcon Cup</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Falcon Cup 2024</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Falcon Cup 2025</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Rules & Guidelines</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-primary login-btn">Admin</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid p-0">
+        <div class="register-team-heading d-flex align-items-center">
+            <div class="container">
+                <div class="d-flex">
+                    <img class="mr-15" src="./images/left-arrow.svg" alt="">
+                    <h4 class="sub-header">Team Members</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- information -->
+    <div class="container">
+        <div class="main">
+            <div class="mvp-header d-flex justify-content-between">
+                <p class="heading">MVP Sports</p>
+                <p class="caption-name">Team Caption: <span>Robert Hopkins</span></p>
+            </div>
+            <div class="register-team-table">
+                <div class="table-responsive">
+                    <table id="example" class="display register-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>GHIN Status</th>
+                                <th>Level</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Smith</td>
+                                <td>Male</td>
+                                <td>+1 (555) 123-4567</td>
+                                <td>john.smith@gmail.com</td>
+                                <td>Active</td>
+                                <td>Player</td>
+                                <td>
+                                    <div>
+                                        <a href="./EditRegister.html">
+                                            <img src="./images/edit.svg" alt="">
+                                        </a>
+                                        <a class="mx-2" class="toggle-icon" onclick="toggleAccordion(this)">
+                                            <img class="img-fluid plus-icon" src="./images/plus.svg" alt="">
+                                            <img style="display: none;" class="img-fluid plus-icon"
+                                                src="./images/minus.svg" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="content-row">
+                                <td colspan="8">
+                                    <div class="accordion-content">
+                                        <p>Corporate Title: <span class="font-bold">Senior Manager</span></p>
+                                        <p>GHIN No: <span class="font-bold">95069785</span></p>
+                                        <p>T-Shirt Size: <span class="font-bold">XL</span></p>
+                                        <p>Meal Preference: <span span class="font-bold">Vegan</span></p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>John Smith</td>
+                                <td>Male</td>
+                                <td>+1 (555) 123-4567</td>
+                                <td>john.smith@gmail.com</td>
+                                <td>Active</td>
+                                <td>Player</td>
+                                <td>
+                                    <div>
+                                        <a href="">
+                                            <img src="./images/edit.svg" alt="">
+                                        </a>
+                                        <a class="mx-2" class="toggle-icon" onclick="toggleAccordion(this)">
+                                            <img class="img-fluid plus-icon" src="./images/plus.svg" alt="">
+                                            <img style="display: none;" class="img-fluid plus-icon"
+                                                src="./images/minus.svg" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="content-row">
+                                <td colspan="8">
+                                    <div class="accordion-content">
+                                        <p>Corporate Title: <span class="font-bold">Senior Manager</span></p>
+                                        <p>GHIN No: <span class="font-bold">95069785</span></p>
+                                        <p>T-Shirt Size: <span class="font-bold">XL</span></p>
+                                        <p>Meal Preference: <span span class="font-bold">Vegan</span></p>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- footer -->
+    <div class=" container-fluid p-0 main-footer">
+        <div class="footer d-flex align-items-center flex-column">
+            <div class="footer-tabs">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item ">
+                        <a class="nav-link " aria-current="page" href="#">Falcon Cup League</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Falcon Cup 2024</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Falcon Cup 2025</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Rules & Guidelines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">About Falcon Cup</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="socials">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link icon-facebook" aria-current="page" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>Falcon Cup© 2024 All Rights Reserved.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        // Function to toggle accordion content visibility
+        function toggleAccordion(td) {
+            var contentRow = td.parentElement.parentElement.parentElement.nextElementSibling;
+            let plusImg = td.children[0].style.display
+            let minusImg = td.children[1].style.display
+            if (plusImg == 'none') {
+                td.children[1].style.display = 'none'
+                td.children[0].style.display = 'inline-block'
+            } else {
+                td.children[1].style.display = 'inline-block'
+                td.children[0].style.display = 'none'
+
+            }
+            if (contentRow.style.display === 'table-row') {
+                contentRow.style.display = 'none';
+                td.classList.remove('open');
+            } else {
+                contentRow.style.display = 'table-row';
+                td.classList.add('open');
+            }
+        }
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+</body>
+
+</html>

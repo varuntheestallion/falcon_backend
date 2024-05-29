@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="bootstrap-5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rozha+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!-- <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .accordion {
+                background-color: #eee;
+                color: #444;
+                cursor: pointer;
+                padding: 10px;
+                width: 100%;
+                border: none;
+                text-align: left;
+                outline: none;
+                font-size: 14px;
+                transition: 0.4s;
+            }
+            .active, .accordion:hover {
+                background-color: #ccc;
+            }
+            .panel {
+                display: none;
+                background-color: white;
+                overflow: hidden;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style> -->
+</head>
+
+<body class="register-team">
+    <div class="container-fluid p-0">
+        <!-- <div class="navbar-v1">
+            <ul class="nav justify-content-end cus-navbar">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Falcon Cup League</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Falcon Cup 2024</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Falcon Cup 2025</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Rules & Guidelines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">About Falcon Cup</a>
+                </li>
+            </ul>
+        </div> -->
+        <nav class="navbar navbar-expand-lg cus-navbar">
+            <div class="container-fluid p-0">
+                <div class="navbar-brand" href="#">
+                    <img src="./images/w-Falcon-logo.png" alt="Logo">
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav top-bar">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Falcon Cup League</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Falcon Cup</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Falcon Cup 2024</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Falcon Cup 2025</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Rules & Guidelines</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-primary login-btn">Admin</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid p-0">
+        <div class="register-team-heading d-flex align-items-center">
+            <div class="container">
+                <h4 class="sub-header">Registered Teams</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- information -->
+    <div class="container">
+        <div class="main">
+            <div class="filter-header">
+                <div class="filter-year">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Year</option>
+                        <option value="1">2024</option>
+                        <option value="2">2025</option>
+                    </select>
+                </div>
+                <div class="filter-location">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select Location</option>
+                        <option value="Austin, Tx">Austin, Tx</option>
+                        <option value="Dallas, Tx">Dallas, Tx</option>
+                        <option value="Miami, FL">Miami, FL</option>
+                        <option value="Raleigh, NC">Raleigh, NC</option>
+                        <option value="NY Metro, NJ/NY">NY Metro, NJ/NY</option>
+                        <option value="Seattle, WA">Seattle, WA</option>
+                        <option value="Los Angeles, CA">Los Angeles, CA</option>
+                        <option value="SF Bay Area, CA">SF Bay Area, CA</option>
+                    </select>
+                </div>
+                <div class="filter-button">
+                    <button type="button" class="btn btn-primary custom-button">Apply Filter</button>
+                </div>
+            </div>
+            <div class="register-team-table">
+                <div class="table-responsive">
+                <table id="example" class="display register-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Team Name</th>
+                            <th>Captain Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>URL</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Birdie Masters</td>
+                            <td>Jack Foreman</td>
+                            <td>+1 (555) 123-4567</td>
+                            <td>jack.foreman@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Eagle Enterprises</td>
+                            <td>Alice Johnson</td>
+                            <td>+1 (555) 234-5678</td>
+                            <td>alice.johnson@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Falcon Solutions</td>
+                            <td>Bob Smith</td>
+                            <td>+1 (555) 345-6789</td>
+                            <td>bob.smith@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Hawk Innovations</td>
+                            <td>Carol White</td>
+                            <td>+1 (555) 456-7890</td>
+                            <td>carol.white@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Osprey Systems</td>
+                            <td>David Brown</td>
+                            <td>+1 (555) 567-8901</td>
+                            <td>david.brown@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Peregrine Tech</td>
+                            <td>Emma Green</td>
+                            <td>+1 (555) 678-9012</td>
+                            <td>emma.green@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Raptor Corp</td>
+                            <td>Frank Harris</td>
+                            <td>+1 (555) 789-0123</td>
+                            <td>frank.harris@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Sparrow Solutions</td>
+                            <td>Grace Lee</td>
+                            <td>+1 (555) 890-1234</td>
+                            <td>grace.lee@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Swallow Services</td>
+                            <td>Hannah Martinez</td>
+                            <td>+1 (555) 901-2345</td>
+                            <td>hannah.martinez@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Swift Enterprises</td>
+                            <td>Isaac Clark</td>
+                            <td>+1 (555) 012-3456</td>
+                            <td>isaac.clark@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Albatross Analytics</td>
+                            <td>John Doe</td>
+                            <td>+1 (555) 111-2233</td>
+                            <td>john.doe@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>Blue Jay Solutions</td>
+                            <td>Karen Wright</td>
+                            <td>+1 (555) 222-3344</td>
+                            <td>karen.wright@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Canary Co.</td>
+                            <td>Larry King</td>
+                            <td>+1 (555) 333-4455</td>
+                            <td>larry.king@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Cardinal Consultants</td>
+                            <td>Megan Young</td>
+                            <td>+1 (555) 444-5566</td>
+                            <td>megan.young@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Crow Communications</td>
+                            <td>Oliver Scott</td>
+                            <td>+1 (555) 555-6677</td>
+                            <td>oliver.scott@gmail.com</td>
+                            <td>
+                                <div class="d-flex">
+                                    <img class="px-2 img-fuild" src="./images/copy.svg" alt="">
+                                    <a class="underlined text-orange" href="Register.html">Link</a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="TeamMembers.html">
+                                    <img src="./images/eye.svg" alt="view" class="">
+                                </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- footer -->
+    <div class=" container-fluid p-0 main-footer">
+        <div class="footer d-flex align-items-center flex-column">
+            <div class="footer-tabs">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item ">
+                        <a class="nav-link " aria-current="page" href="#">Falcon Cup League</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Falcon Cup 2024</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Falcon Cup 2025</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Rules & Guidelines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">About Falcon Cup</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="socials">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link icon-facebook" aria-current="page" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>Falcon Cup© 2024 All Rights Reserved.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
