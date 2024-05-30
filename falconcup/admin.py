@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser, Team, TeamMember
 
+
 # Register your models here.
 
 admin.site.register(Team)
