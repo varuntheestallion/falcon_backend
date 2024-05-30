@@ -21,6 +21,9 @@ class CustomUser(AbstractUser):
 class Team(models.Model):
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
 class TeamMember(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, null=True, blank=True)
@@ -90,3 +93,6 @@ class TeamMember(models.Model):
         choices=PLAYER_LEVEL_CHOICES, 
         default=TEAMMEMBER,
     )
+
+    def __str__(self):
+        return f"{self.name}, Team: {self.team.name if self.team else None}"
