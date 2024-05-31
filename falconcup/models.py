@@ -4,7 +4,9 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 
 from .managers import CustomUserManager
+from .utils import create_random_code
 
+URL_CODE_SIZE = getattr(settings, "REGISTER_URL_CODE_SIZE", 6)
 
 class CustomUser(AbstractUser):
     username = None
@@ -20,6 +22,23 @@ class CustomUser(AbstractUser):
 
 class Team(models.Model):
     name = models.CharField(max_length=200)
+    url_code = models.CharField(max_length=15, unique=True, null=True, blank=True)
+
+    def save_new_url_code(self, custom_code=None, size=URL_CODE_SIZE):
+        if custom_code:
+            new_code = custom_code
+        else:
+            new_code = create_random_code(size)
+
+        if Team.objects.filter(url_code=new_code).exists():
+            if custom_code:
+                raise ValueError("Provided custom_code is being used by an existing team.")
+            else:
+                self.save_new_url_code(size=size)
+        else:
+            self.url_code = new_code
+            self.save()
+            print(f"Team's register form URL code is now '{self.url_code}'")
 
     def __str__(self):
         return self.name

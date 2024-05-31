@@ -139,3 +139,5 @@ LOGOUT_REDIRECT_URL = "home"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 AUTH_USER_MODEL = 'falconcup.CustomUser'
+
+REGISTER_URL_CODE_SIZE = 6
