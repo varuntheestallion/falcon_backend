@@ -60,6 +60,8 @@ class TeamMember(models.Model):
     }
     gender = models.CharField(max_length=200, choices=GENDER_CHOICES)
 
+    corporate_title = models.CharField(max_length=200, null=True, blank=True)
+
     ACTIVE = "ACT"
     INACTIVE = "INA"
     DONT_HAVE_ONE = "DHO"
@@ -73,6 +75,8 @@ class TeamMember(models.Model):
         max_length=3, 
         choices=GHIN_STATUS_CHOICES, 
         default=ACTIVE,
+        null=True,
+        blank=True
     )
     
     ghin_number = models.CharField("GHIN Number", max_length=200)
@@ -96,7 +100,7 @@ class TeamMember(models.Model):
     CART_SITTING_PREFERENCE_CHOICES = { WALK: "Walk", CART: "Cart" }
     cart_sitting_preference = models.CharField(
         "Cart Sitting Preference",
-        max_length=4, 
+        max_length=4,
         choices=CART_SITTING_PREFERENCE_CHOICES,
     )
 
@@ -108,7 +112,7 @@ class TeamMember(models.Model):
     }
     player_level = models.CharField(
         "Player Level",
-        max_length=2, 
+        max_length=2,
         choices=PLAYER_LEVEL_CHOICES, 
         default=TEAMMEMBER,
     )

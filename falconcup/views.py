@@ -29,6 +29,7 @@ def add_team_member(request, team_id):
         if form.is_valid():
             team_member = form.save(commit=False)
             team_member.team = team
+            team_member.player_level = TeamMember.TEAMMEMBER
             team_member.save()
             return redirect("home")
     else:
