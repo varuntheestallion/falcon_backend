@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 
-from falconcup.views import LoginView, RegisterView, add_team_member
+from falconcup.views import (
+    LoginView, SignUpView, add_team_member, proxy_add_team_member)
 
 
 urlpatterns = [
@@ -26,7 +27,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
     path("login/", LoginView.as_view(), name="login"),
-    path("register/", RegisterView.as_view(), name="register"),
+    path("signup/", SignUpView.as_view(), name="signup"),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
-    path("teams/<int:team_id>/team-members/add", add_team_member, name="add_team_member")
+    path("teams/<int:team_id>/team-members/add", add_team_member, name="add_team_member"),
+    path("register/<str:url_code>", proxy_add_team_member, name="proxy_add_team_member"),
 ]

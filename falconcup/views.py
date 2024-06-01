@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from .forms import LoginForm, RegisterForm, TeamMemberForm
+from .forms import LoginForm, SignUpForm, TeamMemberForm
 from .models import Team, TeamMember
 
 
@@ -16,8 +16,8 @@ class LoginView(auth_views.LoginView):
     template_name = "registration/login.html"
     success_url = reverse_lazy("home")
 
-class RegisterView(CreateView):
-    form_class = RegisterForm
+class SignUpView(CreateView):
+    form_class = SignUpForm
     template_name = "registration/signup.html"
     success_url = reverse_lazy("login")
 
@@ -39,3 +39,7 @@ def add_team_member(request, team_id):
         "add_team_member.html",
         {"form": form, "team_name": team.name, "captains": captains}
     )
+
+def proxy_add_team_member(request, url_code):
+    team = Team.objects.get(url_code=url_code)
+    return add_team_member(request, team_id=team.id)
