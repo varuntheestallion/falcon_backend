@@ -117,5 +117,7 @@ class TeamMember(models.Model):
         default=TEAMMEMBER,
     )
 
+    terms_accepted = models.BooleanField("Has Accepted Terms", default=False)
+
     def __str__(self):
         return f"{self.name}, Team: {self.team.name if self.team else None}"
