@@ -9,7 +9,7 @@ class TeamMemberForm(forms.ModelForm):
     class Meta:
         model = TeamMember
         fields = '__all__'
-        exclude = ("user", "team", "ghin_status", "player_level")
+        exclude = ("user", "team", "corporate_title", "ghin_status", "player_level")
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:

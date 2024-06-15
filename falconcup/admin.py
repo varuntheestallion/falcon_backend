@@ -7,13 +7,19 @@ from .models import CustomUser, Team, TeamMember
 
 # Register your models here.
 
-admin.site.register(Team)
 admin.site.register(TeamMember)
+admin.site.register(Team)
 
 class TeamMemberInline(admin.StackedInline):
     model = TeamMember
     can_delete = True
-    verbose_name_plural = 'team_member'
+
+class TeamAdmin(admin.ModelAdmin):
+    model = Team
+    can_delete = True
+    inlines = [
+        TeamMemberInline,
+    ]
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm

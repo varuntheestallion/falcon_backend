@@ -9,6 +9,9 @@ p {
     margin-top: 0;
     margin-bottom: 0;
 }
+a:hover{
+    text-decoration: none;
+}
 
 /* Login page starts here */
 
@@ -18,18 +21,21 @@ p {
     padding: 9.5 14px
 }
 
-.login-form-card{
+.login-form-card {
     border: 1px solid #ddd;
     padding: 1.57em 1.57em 0 1.57em;
     background: #EEEEEC;
 }
+
 .top-bar .nav-link {
     font-size: 18px;
     color: #f8f8f4;
-    padding: 16px !important;
+    padding: 0.9em !important;
+    font-weight: 500;
+    line-height: 28px;
 }
 
-.login-btn{
+.login-btn {
     padding: 14px 42px;
     background-color: #cf8018;
     border: none;
@@ -37,16 +43,16 @@ p {
     margin-left: 16px;
 }
 
-.navbar-nav{
-    margin-right: 32px;
+.navbar-nav {
+    margin-right: 75px;
     align-items: center;
 }
 
-.cus-navbar a::after{
+.cus-navbar .nav-item a::after {
     background-color: #fff;
 }
 
-.cus-navbar a::after{
+.cus-navbar .nav-item a::after {
     content: "" !important;
     display: block !important;
     position: relative;
@@ -63,26 +69,40 @@ p {
     -ms-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-.cus-navbar a:hover::after{
-    width: 100%;
-}
-.cus-navbar a:hover::after{
+
+.cus-navbar .nav-item a:hover::after {
     width: 100%;
 }
 
-.navbar-brand::after{
+.cus-navbar .nav-item a:hover::after {
+    width: 100%;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar-brand::after {
     content: '';
     background-color: #cf8019;
     position: absolute;
     top: 0;
-    right: -15px;
+    left: -50px;
     height: 100%;
     display: block;
-    width: 100%;
+    width: 265px;
     transform: skewX(20deg);
     transform-origin: 100% 0;
+    z-index: 0;
 }
 
+.navbar-brand img {
+    z-index: 1;
+    position: relative;
+    width: 180px;
+    height: 42.2px;
+    margin-left: 15px;
+}
 
 /* banner */
 .cus-banner {
@@ -99,7 +119,7 @@ p {
 }
 
 /* Form */
-.form-card{
+.form-card {
     border: 1px solid #ddd;
     padding: 1.57em 1.57em 0 1.57em;
     background: #EEEEEC;
@@ -107,7 +127,7 @@ p {
 }
 
 /* input */
-.form-control{
+.form-control {
     width: 100%;
     height: 49px;
     border: 1px solid #DBD9D7;
@@ -115,7 +135,7 @@ p {
     border-radius: 5px;
 }
 
-.form-select{
+.form-select {
     width: 100%;
     height: 49px;
     border: 1px solid #DBD9D7;
@@ -123,11 +143,12 @@ p {
     border-radius: 5px;
 }
 
-.login-form-card{
+.login-form-card {
     width: 406px;
     margin-top: 56px;
 }
-.form-label{
+
+.form-label {
     margin-bottom: 10px;
     font-size: 18px;
     font-family: "DM Sans", sans-serif;
@@ -135,7 +156,7 @@ p {
     font-weight: 700
 }
 
-.input-margin{
+.input-margin {
     margin-bottom: 30px;
 }
 
@@ -145,7 +166,7 @@ p {
 
 /* buttom */
 
-.button-container .btn{
+.button-container .btn {
     padding: 19px 42px;
     margin-top: 40px;
     background-color: #cf8018;
@@ -153,33 +174,39 @@ p {
     border-radius: 0;
 }
 
-.btn:hover{
+.btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:hover {
     background-color: #9d600f;
 }
 
 
-.footer{
+.footer {
     background-color: #f8f8f4;
     height: 221px;
     margin-top: 56px;
     padding-top: 24px;
 }
 
-.main-footer .d-flex{
+.main-footer .d-flex {
     gap: 32px;
 }
-.footer .nav-link{
+
+.footer .nav-link {
     color: #6e6d68;
     font-size: 16px;
-    font-weight: 600 ;
-    padding: 8px 16px;
+    font-weight: 700;
+    padding: 0.5em 1em;
 }
 
-.footer .nav-link:hover{
+.footer .nav-link:hover {
     color: #CF8018;
 }
 
-.socials .nav-item{
+.socials .nav-item {
     width: 45px;
     height: 45px;
     border-radius: 45px;
@@ -187,7 +214,7 @@ p {
     margin: 0 5px;
 }
 
-.copyright{
+.copyright {
     color: #bcb5b0;
     font-size: 14px;
     font-weight: 300;
@@ -198,25 +225,25 @@ p {
 /* Register page ends here */
 
 /* information */
-.main-content{
+.main-content {
     max-width: 800px;
     margin: 0 auto;
 }
 
-.header-info{
-    background-color:#EEEEEC ;
+.header-info {
+    background-color: #EEEEEC;
     border: 1px solid #ddd;
     margin-top: 20px;
 }
 
-.company-name{
-    color:#CF8018;
+.company-name {
+    color: #CF8018;
     font-size: 18px;
     font-weight: 600;
     padding: 15px;
 }
 
-.captain-info{
+.captain-info {
     background-color: #4D574D;
     border: 1px solid #4D574D;
     padding: 9px;
@@ -224,32 +251,41 @@ p {
     font-weight: 300;
 }
 
-.cap-information{
+.cap-information {
     padding: 20px;
     gap: 10px;
     margin-left: 4px;
 }
 
-.info-title{
-    color: #9A9693;
-    font-weight: 300;
-
+.info-title {
+    color: #1E0D01;
+    font-weight: 400;
 }
 
+.info-title-ans {
+    font-weight: 500;
+}
+
+.header-info .custom-hr {
+    width: 92%;
+    margin-left: 30px;
+    margin-bottom: 0;
+}
 
 /* Form */
 
-.register-form{
+.register-form {
     margin-top: 20px;
 }
-.form-card-register{
+
+.form-card-register {
     border: 1px solid #ddd;
     padding: 1.57em 1.57em 0 1.57em;
     background: #EEEEEC;
 }
 
 
-.player-lvl{
+.player-lvl {
     height: 48px;
     display: flex;
     align-items: center;
@@ -261,7 +297,7 @@ p {
     border: 1px solid #707070;
 }
 
- .form-check-input:checked[type=radio] {
+.form-check-input:checked[type=radio] {
     background-image: url(images/dot.svg);
     background-size: 14px 14px;
     background-position: center;
@@ -271,15 +307,256 @@ p {
     background-color: #ffffff;
     border-color: #cf8018;
 }
+
 .player-lvl .form-check-input:focus {
     border-color: #cf8018;
     outline: 0;
-    box-shadow: none }
+    box-shadow: none
+}
 
-    .player-lvl .form-check-label{
-        padding-top: 2px;margin-left: 8px;
-    }
-    .player-lvl .form-check-inline {
-        display: inline-block;
-        margin-right: 16px;
-    }
+.player-lvl .form-check-label {
+    padding-top: 2px;
+    margin-left: 8px;
+}
+
+.player-lvl .form-check-inline {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.register-team .register-team-heading {
+    background-color: #F8F8F4;
+    height: 56px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.register-team .register-team-heading h4 {
+    font-size: 22px;
+    margin: 0;
+    color: #1E0D01;
+}
+
+.register-team .filter-header {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.register-team .filter-header .filter-year {
+    width: 90px;
+    margin-right: 20px;
+}
+
+.register-team .filter-header .filter-year .form-select {
+    color: #6E6D68;
+    font-size: 18px;
+}
+
+.register-team .filter-header .filter-location {
+    width: 200px;
+}
+
+.register-team .filter-header .filter-location .form-select {
+    color: #6E6D68;
+    font-size: 18px;
+}
+
+.custom-button {
+    padding: 10px;
+    background-color: #CA7D18;
+    border: none;
+    border-radius: 3px;
+    margin-left: 16px;
+}
+
+.register-team-table {
+    margin-top: 15px;
+}
+
+.register-team-table .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    transition: 0.4s;
+}
+
+.register-team-table .active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.register-team-table .panel {
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+.register-team-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.register-team-table th,
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+.register-team-table th {
+    color: #fff;
+    font-weight: 400;
+    padding: 15px !important;
+}
+
+.register-team-table .register-table thead {
+    background-color: #4D574D;
+}
+
+.register-team-table .register-table {
+    padding-top: 15px;
+}
+
+.register-team-table .register-table tbody {
+    background-color: #fff;
+}
+
+.register-team-table .register-table tbody tr td {
+    padding: 15px !important;
+}
+
+.text-orange {
+    color: #cf8018;
+}
+
+.register-team-table .dataTables_length,
+.register-team-table select {
+    color: #6E6D68 !important;
+}
+
+.register-team-table select:focus-visible {
+    outline: none;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+.mvp-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mvp-header .heading {
+    color: #D18624;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.mvp-header .caption-name {
+    font-weight: 400;
+    color: #9A9693;
+}
+
+.mvp-header .caption-name span {
+    color: #1E0D01;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Style accordion */
+
+.register-team-table .content-row {
+    display: none;
+}
+.register-team-table .content-row td{
+    text-align: left !important;
+}
+
+.register-team-table .toggle-icon {
+    cursor: pointer;
+    user-select: none;
+}
+
+.register-team-table .toggle-icon::before {
+    content: '+';
+    color: black;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.register-team-table .toggle-icon.open::before {
+    content: '-';
+}
+.register-team-table .plus-icon{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.font-bold{
+    font-weight: 600;
+}
+.register-team-table .dataTable.display tbody td {
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: none;
+}
+.register-team-table .dataTable.display tbody td:first-child {
+    border-left: 1px solid #ddd;
+    text-align: center;
+}
+.register-team-table table.dataTable.no-footer{
+    border-bottom: none;
+}
+.edit-register-team .register-team-heading {
+    background-color: #F8F8F4;
+    height: 56px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.edit-register-team .register-team-heading h4 {
+    font-size: 22px;
+    margin: 0;
+    color: #1E0D01;
+}
+.edit-register-team .register-form{
+    margin-top: 40px;
+}
+.edit-register-team .button-container .btn {
+    padding: 10px 20px;
+    margin-top: 40px;
+    background-color: #cf8018;
+    border: none;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 18px;
+}
+.edit-register-team .button-container .outline-button {
+    background-color: #FFF;
+    border: 1px solid #D18624;
+    color: #D18624;
+}
+.registering-success-modal .modal-dialog .modal-content .modal-header {
+    border-bottom: 0;
+}
+.registering-success-modal .modal-dialog .modal-content{
+    background-color: #CF8019;
+}
+.registering-success-modal .modal-dialog .modal-content .modal-header .btn-close{
+    filter: brightness(0) invert(1);
+}
+
+.terms-text {
+    overflow-y: auto;
+    height: 300px;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}

@@ -50,15 +50,22 @@ class TeamMember(models.Model):
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=200)
 
+    SELECT_PLACEHOLDER = "— Please choose an option —"
+
     MALE = "M"
     FEMALE = "F"
     OTHER = "O"
     GENDER_CHOICES = {
+        "": SELECT_PLACEHOLDER,
         MALE: "Male",
         FEMALE: "Female",
         OTHER: "Other",
     }
-    gender = models.CharField(max_length=200, choices=GENDER_CHOICES)
+    gender = models.CharField(
+        max_length=200,
+        choices=GENDER_CHOICES,
+        blank=True
+    )
 
     corporate_title = models.CharField(max_length=200, null=True, blank=True)
 
@@ -66,6 +73,7 @@ class TeamMember(models.Model):
     INACTIVE = "INA"
     DONT_HAVE_ONE = "DHO"
     GHIN_STATUS_CHOICES = {
+        "": SELECT_PLACEHOLDER,
         ACTIVE: "Active",
         INACTIVE: "Inactive",
         DONT_HAVE_ONE: "Don't have one",
@@ -87,21 +95,44 @@ class TeamMember(models.Model):
     L = "L"
     XL = "XL"
     XXL = "XXL"
-    TSHIRT_SIZE_CHOICES = { XS: "XS", S: "S", M: "M", L: "L", XL: "XL", XXL: "XXL" }
-    tshirt_size = models.CharField("T-Shirt Size", max_length=3, choices=TSHIRT_SIZE_CHOICES)
+    TSHIRT_SIZE_CHOICES = {
+        "": SELECT_PLACEHOLDER,
+        XS: "XS", S: "S", M: "M",
+        L: "L", XL: "XL", XXL: "XXL",
+    }
+    tshirt_size = models.CharField(
+        "T-Shirt Size",
+        max_length=3,
+        choices=TSHIRT_SIZE_CHOICES,
+        blank=True
+    )
 
     MEAT = "MEAT"
     VEGETARIAN = "VEG"
-    MEAL_PREFERENCE_CHOICES = { MEAT: "Meat", VEGETARIAN: "Vegetarian" }
-    meal_preference = models.CharField("Meal Preference", max_length=4, choices=MEAL_PREFERENCE_CHOICES)
+    MEAL_PREFERENCE_CHOICES = {
+        "": SELECT_PLACEHOLDER,
+        MEAT: "Meat",
+        VEGETARIAN: "Vegetarian",
+    }
+    meal_preference = models.CharField(
+        "Meal Preference", 
+        max_length=4,
+        choices=MEAL_PREFERENCE_CHOICES,
+        blank=True
+    )
 
     WALK = "WALK"
     CART = "CART"
-    CART_SITTING_PREFERENCE_CHOICES = { WALK: "Walk", CART: "Cart" }
+    CART_SITTING_PREFERENCE_CHOICES = {
+        "": SELECT_PLACEHOLDER,
+        WALK: "Walk",
+        CART: "Cart",
+    }
     cart_sitting_preference = models.CharField(
         "Cart Sitting Preference",
         max_length=4,
         choices=CART_SITTING_PREFERENCE_CHOICES,
+        blank=True
     )
 
     TEAMMEMBER = "TM"
@@ -117,7 +148,7 @@ class TeamMember(models.Model):
         default=TEAMMEMBER,
     )
 
-    terms_accepted = models.BooleanField("Has Accepted Terms", default=False)
+    terms_accepted = models.BooleanField("Has Accepted Terms", default=False, blank=True)
 
     def __str__(self):
         return f"{self.name}, Team: {self.team.name if self.team else None}"
