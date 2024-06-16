@@ -64,7 +64,6 @@ class TeamMember(models.Model):
     gender = models.CharField(
         max_length=200,
         choices=GENDER_CHOICES,
-        blank=True
     )
 
     corporate_title = models.CharField(max_length=200, null=True, blank=True)
