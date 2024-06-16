@@ -34,12 +34,11 @@ def add_team_member(request, team_id):
             team_member.save()
             messages.success(request, "Thank you for registering for the Falcon Cup!")
             return render(
-                request,
-                "add_team_member.html", {"form": form, "team_name": team.name},
+                request, "add_team_member.html",
+                {"form": form, "team_name": team.name},
             )
     return render(
-        request,
-        "add_team_member.html",
+        request, "add_team_member.html",
         {"form": form, "team_name": team.name, "captains": captains},
     )
 

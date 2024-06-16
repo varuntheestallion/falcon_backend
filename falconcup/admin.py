@@ -2,24 +2,34 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser, Team, TeamMember
+from .models import CustomUser, TeamMember, Team
 
 
-# Register your models here.
-
-admin.site.register(TeamMember)
-admin.site.register(Team)
-
-class TeamMemberInline(admin.StackedInline):
+class TeamMemberAdmin(admin.ModelAdmin):
     model = TeamMember
     can_delete = True
+    fields = [
+        "player_level", "team", "name", "email", "phone",
+        "gender", "corporate_title", "ghin_status", "ghin_number",
+        "tshirt_size", "meal_preference", "cart_sitting_preference"
+    ]
+
+class TeamMemberInline(admin.TabularInline):
+    model = TeamMember
+    can_delete = True
+    extra = 0
+    show_change_link = True
+    fields = [
+        "player_level", "name", "email", "phone", "gender",
+        "corporate_title", "ghin_status", "ghin_number",
+        "tshirt_size", "meal_preference", "cart_sitting_preference"
+    ]
+    ordering = ["player_level"]
 
 class TeamAdmin(admin.ModelAdmin):
     model = Team
     can_delete = True
-    inlines = [
-        TeamMemberInline,
-    ]
+    inlines = [TeamMemberInline]
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
@@ -44,4 +54,6 @@ class CustomUserAdmin(UserAdmin):
     ordering = ("email",)
     inlines = (TeamMemberInline,)
 
+admin.site.register(TeamMember, TeamMemberAdmin)
+admin.site.register(Team, TeamAdmin)
 admin.site.register(CustomUser, CustomUserAdmin)
