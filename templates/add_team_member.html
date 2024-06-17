@@ -1,4 +1,4 @@
-<!-- templates/team_member_create.html -->
+<!-- templates/add_team_member.html -->
 {% extends "base.html" %}
 
 {% load static %}
@@ -9,28 +9,6 @@
 {% block banner_text %}REGISTER{% endblock %}
 
 {% block content %}
-{% if messages %}
-<div class="container">
-    <div class="main-content">
-        <div class="header-info">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="company-name">
-                        <p>{{ team_name }}</p>
-                    </div>
-                </div>
-                <div class="col-12 text-center">
-                    <div class="captain-info">
-                        {% for message in messages %}
-                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% else %}
 <div class="container">
     <div class="main-content">
         <div class="header-info">
@@ -196,6 +174,5 @@
         </div>
     </div>
 </div>
-{% endif %}
 {% endblock %}
 

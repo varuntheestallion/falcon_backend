@@ -1,0 +1,33 @@
+<!-- templates/register_success.html -->
+{% extends "base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Register{% endblock %}
+
+{% block banner_text %}REGISTER{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="main-content">
+        <div class="header-info">
+            <div class="row">
+                {% if "team_name" in request.session %}
+                    <div class="col-12 text-center">
+                        <div class="company-name">
+                            <p>{{ request.session.team_name }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="col-12 text-center">
+                    <div class="captain-info">
+                        <p class="success">Thank you for registering for the Falcon Cup!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

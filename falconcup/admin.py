@@ -9,9 +9,9 @@ class TeamMemberAdmin(admin.ModelAdmin):
     model = TeamMember
     can_delete = True
     fields = [
-        "player_level", "team", "name", "email", "phone",
-        "gender", "corporate_title", "ghin_status", "ghin_number",
-        "tshirt_size", "meal_preference", "cart_sitting_preference"
+        "player_level", "team", "name", "email", "phone","gender",
+        "corporate_title", "ghin_status", "ghin_number", "tshirt_size",
+        "meal_preference", "cart_sitting_preference", "terms_accepted"
     ]
 
 class TeamMemberInline(admin.TabularInline):
@@ -20,9 +20,9 @@ class TeamMemberInline(admin.TabularInline):
     extra = 0
     show_change_link = True
     fields = [
-        "player_level", "name", "email", "phone", "gender",
-        "corporate_title", "ghin_status", "ghin_number",
-        "tshirt_size", "meal_preference", "cart_sitting_preference"
+        "player_level", "name", "email", "phone", "gender", "corporate_title", 
+        "ghin_status", "ghin_number", "tshirt_size", "meal_preference",
+        "cart_sitting_preference", "terms_accepted"
     ]
     ordering = ["player_level"]
 

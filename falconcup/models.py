@@ -8,6 +8,7 @@ from .utils import create_random_code
 
 URL_CODE_SIZE = getattr(settings, "REGISTER_URL_CODE_SIZE", 6)
 
+
 class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
@@ -42,6 +43,11 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.url_code:
+            self.save_new_url_code()
+        super().save(*args, **kwargs)
 
 class TeamMember(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)

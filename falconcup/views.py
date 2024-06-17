@@ -1,7 +1,4 @@
-from django.contrib import messages
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -25,18 +22,17 @@ class SignUpView(CreateView):
 def add_team_member(request, team_id):
     team = Team.objects.get(id=team_id)
     captains = TeamMember.objects.filter(team=team_id, player_level=TeamMember.CAPTAIN)
-    form = TeamMemberForm(request.POST or None)
     if request.method == "POST":
+        form = TeamMemberForm(request.POST)
         if form.is_valid():
             team_member = form.save(commit=False)
             team_member.team = team
             team_member.player_level = TeamMember.TEAMMEMBER
             team_member.save()
-            messages.success(request, "Thank you for registering for the Falcon Cup!")
-            return render(
-                request, "add_team_member.html",
-                {"form": form, "team_name": team.name},
-            )
+            request.session["team_name"] = team.name
+            return redirect("register_success")
+    else:
+        form = TeamMemberForm()
     return render(
         request, "add_team_member.html",
         {"form": form, "team_name": team.name, "captains": captains},
