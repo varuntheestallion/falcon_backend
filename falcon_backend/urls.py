@@ -30,6 +30,6 @@ urlpatterns = [
     path("signup/", SignUpView.as_view(), name="signup"),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
     path("teams/<int:team_id>/team-members/add", add_team_member, name="add_team_member"),
-    path("register/<str:url_code>", proxy_add_team_member, name="proxy_add_team_member"),
     path("register/success", TemplateView.as_view(template_name="register_success.html"), name="register_success"),
+    path("register/<str:url_code>", proxy_add_team_member, name="proxy_add_team_member"),
 ]
